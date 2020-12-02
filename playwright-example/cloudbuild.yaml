@@ -1,0 +1,23 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    timeout: 600s
+    args:
+      - functions
+      - deploy
+      - issue_playwright
+      - --source=.
+      - --region=asia-northeast1
+      - --trigger-http
+      - --runtime=nodejs12
+      - --allow-unauthenticated
+      - --verbosity=debug
+      - --memory
+      - 512MB
+      - --timeout=540s
+      - --update-env-vars
+      - PLAYWRIGHT_BROWSERS_PATH=0
+      - --update-build-env-vars
+      - PLAYWRIGHT_BROWSERS_PATH=0
+
+    env:
+      - PLAYWRIGHT_BROWSERS_PATH=0
