@@ -1,0 +1,16 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    timeout: 600s
+    args:
+      - functions
+      - deploy
+      - issue_puppeteer
+      - --source=.
+      - --region=asia-northeast1
+      - --trigger-http
+      - --runtime=nodejs12
+      - --allow-unauthenticated
+      - --verbosity=debug
+      - --memory
+      - 512MB
+      - --timeout=540s
